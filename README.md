@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Inkwell PDF Editor Logo (1).png" alt="Inkwell PDF Viewer & Editor Logo" width="220"/>
+  <img src="Inkwell.png" alt="Inkwell PDF Viewer & Editor Logo" width="220"/>
 </p>
 
 <h1 align="center">Inkwell PDF Viewer, Editor & Encryptor</h1>
