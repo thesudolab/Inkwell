@@ -462,8 +462,6 @@ document.addEventListener("drop",async e=>{const f=e.dataTransfer.files[0];if(f&
 
 $("save").onclick=async()=>{
   commitText();
-  const dl=await claude.use("downloads").catch(()=>null);
-  if(!dl){say("Saving isn't available in this view");return}
   try{
     say("Building PDF…");
     const {PDFDocument,StandardFonts,rgb}=PDFLib;
@@ -514,8 +512,19 @@ $("save").onclick=async()=>{
       }
     }
     const data=await src.save();
-    await dl.save({filename:name.replace(/\.pdf$/i,"")+"-edited.pdf",data});
+    
+    // Standard Browser Download Mechanism
+    const blob = new Blob([data], { type: "application/pdf" });
+    const url = URL.createObjectURL(blob);
+    const aTag = document.createElement("a");
+    aTag.href = url;
+    aTag.download = name.replace(/\.pdf$/i, "") + "-edited.pdf";
+    document.body.appendChild(aTag);
+    aTag.click();
+    document.body.removeChild(aTag);
+    URL.revokeObjectURL(url);
+
     say("Saved");
-  }catch(e){say(e&&e.code==="declined"?"Save cancelled":"Save failed: "+(e.message||e))}
+  }catch(e){say("Save failed: "+(e.message||e))}
 };
 </script></body></html>
