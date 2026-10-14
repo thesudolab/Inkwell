@@ -1,4 +1,5 @@
 # 🖋️ Inkwell PDF Viewer, Editor & Encryptor
+<img width="1254" height="1254" alt="Inkwell PDF Editor Logo (1)" src="https://github.com/user-attachments/assets/8198cae6-06ac-46eb-808a-a0dad5eb7992" />
 
 <p align="center">
   <b>A lightweight, secure, and feature-rich desktop PDF editor, viewer, and encryption utility built with Python, HTML5 Canvas, and modern web libraries.</b>
